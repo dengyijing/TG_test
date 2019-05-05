@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <Button
+        android:id="@+id/bt_return"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/left"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="修改昵称"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/bt_return" />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:id="@+id/bt_save"
+        android:layout_alignRight="@+id/Tv_1"
+        android:text="保存"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="@drawable/bg_btn2"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/Tv_1"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/et_write"
+        android:layout_below="@+id/Tv_1"
+        android:layout_marginTop="5dp"/>
+
+</RelativeLayout>

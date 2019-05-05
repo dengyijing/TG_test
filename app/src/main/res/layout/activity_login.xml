@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <Button
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/bt_return"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/left"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/tv_1"
+        android:text="登录"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tv_1"
+        android:layout_marginTop="90dp" />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="手机号:"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        android:textColor="#FFBFBABA"
+        android:layout_below="@+id/tv_1"
+        android:layout_marginTop="90dp"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_phonenumber"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="密码:"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        android:textColor="#FFBFBABA"
+        android:layout_below="@+id/et_phonenumber"
+        android:layout_marginTop="5dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_code"
+        android:layout_marginTop="60dp"
+        android:text="登录"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_btn5"/>
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:id="@+id/bt_register"
+        android:text="注册"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/bt_login"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"/>
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:id="@+id/bt_findcode"
+        android:text="忘记密码？"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        android:layout_below="@+id/bt_login"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/bt_login"
+        android:layout_marginTop="100dp"
+        android:id="@+id/tv_2"
+        android:text="第三方登录"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_5"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/bt_login"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="134dp"
+        android:background="@drawable/wechatlogo" />
+
+    <Button
+        android:id="@+id/btn_6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/bt_login"
+        android:layout_marginTop="133dp"
+        android:background="@drawable/qqlogo"
+        android:layout_marginLeft="230dp"/>
+
+</RelativeLayout>
