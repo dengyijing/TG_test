@@ -32,6 +32,7 @@
         <activity android:name="activitytest.example.com.tg_test.LoginActivity" />
         <activity android:name="activitytest.example.com.tg_test.WowindowActivity" />
         <activity android:name="activitytest.example.com.tg_test.ModifyInformationActivity" />
+        <activity android:name=".BlueToothActivity"/>
         <activity android:name="activitytest.example.com.tg_test.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

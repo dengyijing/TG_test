@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<Button
+    android:id="@+id/btn_Apost"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginTop="50dp"
+    android:text="Apost"
+    android:textSize="18sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_Aget"
+        android:layout_below="@+id/btn_Apost"
+        android:text="Aget"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btn_post"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_Aget"
+        android:text="post"
+        android:textSize="18sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_get"
+        android:layout_below="@+id/btn_post"
+        android:text="get"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/tv_read"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/btn_get"
+        android:layout_height="50dp"/>
+
+
+</RelativeLayout>
