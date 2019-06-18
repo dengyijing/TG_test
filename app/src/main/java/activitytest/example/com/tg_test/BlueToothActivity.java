@@ -8,34 +8,18 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.ref.WeakReference;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 public class BlueToothActivity extends AppCompatActivity {
     private Button btn_post;
@@ -43,7 +27,7 @@ public class BlueToothActivity extends AppCompatActivity {
     /*handler主要根据传递的message中的what字段进行区分，
      我们一般需要提前声明一系列相关的字段，如UPDATE_IMG：将我之前写好的静态类的结构中activity换成我们当前activity*/
     private static final int UPDATE_IMG = 0x0001;
-    private MyHandler myHandler = new MyHandler(this);  //实例化handler
+    //private MyHandler myHandler = new MyHandler(this);  //实例化handler
     private String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE}; // 要申请的权限
     private AlertDialog dialog;
 
@@ -55,7 +39,8 @@ public class BlueToothActivity extends AppCompatActivity {
         btn_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postRequest();
+                Intent intent = new Intent(BlueToothActivity.this,NetTestActivity.class);
+                startActivity(intent);
             }
         });
         /*动态权限申请
@@ -64,109 +49,15 @@ public class BlueToothActivity extends AppCompatActivity {
           如果没有授予该权限，就去提示用户请求
           */
         DynamicAccessrequest();
-    }
-    /*请求网络
-      第一次请求
-     */
-    private void postRequest() {
-        OkHttpClient client = buildHttpClient();
-       MediaType fileType = MediaType.parse("File/*");//数据类型为json格式，
-        final File file = new File("/storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1560344964580.jpg");//file对象.
-        RequestBody body = RequestBody.create(fileType, file);
-        Request request = new Request.Builder()
-                .url("http://47.107.177.206/img_classify")
-                .post(body)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            //这里是异步操作的回调，成功或者失败，会分别调用onFailure或者onSuccess
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.d(TAG, "onFailure: " + e.toString());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Log.d("kww1", "response.code()==" + response.code());
-                Log.d("kww1", "response.message==" + response.message());
-                /*
-                下载文件
-                 */
-                try{
-                    String url ="http://47.107.177.206/img_classify/response_img.jpg";
-                    String path = "/storage/emulated/0/Android/obb";
-                    final long startTime = System.currentTimeMillis();
-                    Log.i("DOWNLOAD","startTime="+startTime);
-                    //下载函数
-                    String filename=url.substring(url.lastIndexOf("/") + 1);
-                   // 获取文件名
-                    URL myURL = new URL(url);
-                    URLConnection conn = myURL.openConnection();
-                    conn.connect();
-                    InputStream is = conn.getInputStream();
-                    int fileSize = conn.getContentLength();//根据响应获取文件大小
-                    if (fileSize <= 0) throw new RuntimeException("无法获知文件大小 ");
-                    if (is == null) throw new RuntimeException("stream is null");
-                    File file = new File(path);
-                    if(!file.exists()){
-                        file.mkdirs();
-                    }
-                    //把数据存入路径+文件名
-                    FileOutputStream fos = new FileOutputStream(path+"/"+filename);
-                    byte buf[] = new byte[1024];
-                    int downLoadFileSize = 0;
-                    do{
-                        //循环读取
-                        int numread = is.read(buf);
-                        if (numread == -1)
-                        {
-                            break;
-                        }
-                        fos.write(buf, 0, numread);
-                        downLoadFileSize += numread;
-                        //更新进度条
-                    } while (true);
-                    Log.i("DOWNLOAD","download success");
-                    Log.i("DOWNLOAD","totalTime="+ (System.currentTimeMillis() - startTime));
-                    is.close();
-                    //第一次调用接口
-                    postSecondrequest();
-                } catch (Exception ex) {
-                    Log.e("DOWNLOAD", "error: " + ex.getMessage(), ex);
-                }
-            }
-
-            private void postSecondrequest() {
-                
-
-            }
-
-        });
-
-
-
-
-            /*这里是成功的回调，异步操作是在子线程，无法直接进行ui更新，所以我们需要使用到handler这个线程间通信的机制
-                 将子线程的数据通过通信返回到主线程，并进行UI相关更新
-                 先实例化一个静态内部类handler，有简单版本的handler不过会存在内存泄漏的危险
-                 上面已经完成了handler的实例化，在这里可以使用hanler传递
-                 首先创建一个需要传递的message*/
-        Message message = Message.obtain();
-        message.what = UPDATE_IMG;  //这个就是判断消息来源的字段
-        //这里可以携带其他数据，比如两个定义好的int ，或者obj对象类型
-        message.obj = new String("你好啊");
-        myHandler.sendMessage(message);  //发送完毕
-
-    }
-
+        }
     /*设置请求时间*/
 
     private OkHttpClient buildHttpClient() {
-        return new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(60, TimeUnit.SECONDS).build();
+        return new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(80, TimeUnit.SECONDS).build();
     }
 
-
     //这里新建一个类MyHandler 继承 Handler，并重写handlerMessage方法，使用弱引用声明activity，以便容易被回收掉
-    private static class MyHandler extends Handler {
+    /*private static class MyHandler extends Handler {
         WeakReference<BlueToothActivity> mActivityReference;
 
         MyHandler(BlueToothActivity activity) {
@@ -188,7 +79,7 @@ public class BlueToothActivity extends AppCompatActivity {
                 }
             }
         }
-    }
+    }*/
 
     //动态权限申请
     private void DynamicAccessrequest() {

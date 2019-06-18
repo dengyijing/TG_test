@@ -1,4 +1,4 @@
-package com.example.testnet;
+package activitytest.example.com.tg_test.net;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -242,7 +242,7 @@ public class OkHttpUtil {
      * @param file
      * @param callback
      */
-    public static void uploadImg2mp3(String url, String key, MultipartBody.Builder builder, File file,final String saveDir, final String fileName,
+    public static void uploadImg2mp3(String url, String key, MultipartBody.Builder builder, File file, final String saveDir, final String fileName,
                                      final CallBackUtil.IDownloadCallback callback){
         LogUtil.d("url = " + url);
         getInstance();

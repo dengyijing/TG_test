@@ -16,8 +16,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -26,15 +26,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="activitytest.example.com.tg_test.TakePhotoActivity"></activity>
-        <activity android:name="activitytest.example.com.tg_test.RegisterActivity" />
-        <activity android:name="activitytest.example.com.tg_test.FindCodeActivity" />
-        <activity android:name="activitytest.example.com.tg_test.SharingActivity" />
-        <activity android:name="activitytest.example.com.tg_test.LoginActivity" />
-        <activity android:name="activitytest.example.com.tg_test.WowindowActivity" />
-        <activity android:name="activitytest.example.com.tg_test.ModifyInformationActivity" />
-        <activity android:name=".BlueToothActivity"/>
-        <activity android:name="activitytest.example.com.tg_test.MainActivity">
+        <activity android:name=".NetTestActivity"></activity>
+        <activity android:name=".TakePhotoActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".FindCodeActivity" />
+        <activity android:name=".SharingActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".WowindowActivity" />
+        <activity android:name=".ModifyInformationActivity" />
+        <activity android:name=".BlueToothActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.media.action.IMAGE_CAPTURE" />

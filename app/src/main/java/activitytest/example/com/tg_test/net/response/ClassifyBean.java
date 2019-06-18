@@ -1,4 +1,4 @@
-package com.example.testnet.response;
+package activitytest.example.com.tg_test.net.response;
 
 import java.util.List;
 

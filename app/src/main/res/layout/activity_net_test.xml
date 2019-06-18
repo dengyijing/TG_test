@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".NetTestActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/id_upload_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上传照片"
+        />
+    <Button
+        android:id="@+id/id_download_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下载音频"
+        />
+    <TextView
+        android:id="@+id/id_msg_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

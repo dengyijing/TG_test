@@ -1,7 +1,9 @@
-package com.example.testnet;
+package activitytest.example.com.tg_test.net;
 
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
+
+import activitytest.example.com.tg_test.R;
 
 public class WaitDialog {
 

@@ -1,4 +1,4 @@
-package com.example.testnet;
+package activitytest.example.com.tg_test.net;
 
 import android.os.AsyncTask;
 
